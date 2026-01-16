@@ -1,0 +1,446 @@
+/* ================= GLOBAL VARIABLES ================= */
+:root {
+  --primary-color: #ffffff; /* White background */
+  --secondary-color: #000000; /* Black accent text */
+  --accent-color: #d4af37; /* Gold highlights/buttons */
+  --text-color: #000000; /* Default text */
+  --text-light: #555555; /* Subtext */
+  --transition-speed: 0.4s;
+  --border-radius: 10px;
+  --max-width: 1200px;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+/* ================= GLOBAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--secondary-color);
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* ================= NAVIGATION ================= */
+.nav-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 20px;
+height: 70px;
+background: #ffffff;
+border-bottom: 1px solid rgba(11,19,32,0.05);
+}
+
+.nav-left .nav-logo {
+height: 90px; /* Slightly reduced to fit nav container */
+}
+
+.nav-right {
+display: flex;
+align-items: center;
+gap: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  margin-right: 50px;
+  list-style: none;     /* remove bullet from all li inside */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+color: #0b1320;
+font-weight: 500;
+position: relative;
+transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+color: #d4af37;
+}
+
+.nav-links a::after {
+content: "";
+position: absolute;
+width: 0;
+height: 2px;
+left: 0;
+bottom: -4px;
+background-color: #d4af37;
+transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+.btn-cta {
+background-color: #d4af37;
+color: #ffffff;
+padding: 12px 20px;
+border-radius: 8px;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+background-color: #0b1320;
+color: #ffffff;
+}
+
+/* ========== CONTACT HERO SECTION ========== */
+.contact-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/contact-us/contact.png") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.contact-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  padding: 0 20px;
+}
+
+/* ===== Hero Heading & Paragraph ===== */
+.contact-hero .hero-content h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  font-size: 4rem;          /* Larger hero title */
+  font-weight: 800;         /* Bold and elegant */
+  text-transform: none;     /* Keep natural case */
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.contact-hero .hero-content p {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  font-size: 1.60rem;
+  font-weight: 450;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+
+
+/* ========== CONTACT FORM SECTION ========== */
+.contact-form-section {
+  background-color: #ffffff;
+  padding: 100px 40px;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 60px;
+  flex-wrap: nowrap;
+}
+
+/* LEFT IMAGE */
+.form-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-left img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  object-fit: cover;
+}
+
+/* RIGHT FORM */
+.form-right {
+  flex: 1;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.form-right h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b1320;
+  margin-bottom: 10px;
+}
+
+.form-right p {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+}
+
+/* Elegant Inputs */
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: #d4af37;
+  outline: none;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  background-color: #d4af37;
+  color: #ffffff;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0b1320;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .form-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-left, .form-right {
+    width: 100%;
+  }
+
+  .form-left img {
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+
+/* ================= FOOTER ================= */
+footer.footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  background-color: #0b1320;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start; /* top-aligned sections */
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  gap: 20px;
+  padding: 0 -100px;
+}
+
+/* ===== Left Section ===== */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* top aligns with other sections */
+  gap: -25px;
+  margin-left: -40
+}
+
+.footer-left img.footer-logo {
+  max-width: 120px;
+  height: auto;
+  margin-top: 100px;
+  margin: 0; /* remove negative margins */
+}
+
+/* Wrapper aligns text vertically under logo while keeping top alignment with headers */
+.footer-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* start at same top as logo */
+}
+
+.footer-left .footer-text {
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+  color: #ffffff
+}
+
+.footer-left .footer-slogan {
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff
+}
+
+/* ===== Middle Section: Quick Links ===== */
+.footer-center h4 {
+  margin-bottom: 12px;
+  color: #ffffff
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+/* ===== Right Section: Contact Us + Icons ===== */
+.footer-right h4 {
+  padding-bottom: 8px;
+  margin: 0;
+  color: #ffffff
+}
+
+.footer-right p {
+  margin: 2px 0;
+  color: #ffffff
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.social-icons img {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+}
+
+/* ===== Footer Separator & Copyright ===== */
+.footer-separator {
+  border: 0;
+  border-top: 2px solid #ffffff;
+  margin: 20px 0 12px;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-text-wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-center,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-left img.footer-logo {
+    margin: 0 auto 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+

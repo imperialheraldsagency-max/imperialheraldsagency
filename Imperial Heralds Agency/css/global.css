@@ -1,0 +1,274 @@
+/* ============================================
+   IMPERIAL HERALDS AGENCY | GLOBAL CSS
+   Elegant • Sophisticated • Premium Feel
+   Brand Colors: White (dominant), Black, Gold (#d4af37)
+   ============================================ */
+
+/* ------------------ ROOT VARIABLES ------------------ */
+:root {
+  --primary-color: #000000; /* Black */
+  --secondary-color: #d4af37; /* Gold */
+  --background-color: #ffffff; /* White */
+  --text-color: #000000;
+  --font-primary: "Poppins", "Montserrat", sans-serif;
+  --transition-speed: 0.4s;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------ GLOBAL RESETS ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ------------------ LINKS & BUTTONS ------------------ */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+a:hover {
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+button, .cta-btn {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow-soft);
+}
+
+button:hover, .cta-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ------------------ HEADINGS ------------------ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ------------------ SECTIONS ------------------ */
+section {
+  padding: 6rem 10%;
+  position: relative;
+  overflow: hidden;
+}
+
+section:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* ------------------ NAVBAR (GLOBAL BASE) ------------------ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10%;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.navbar.scrolled {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  box-shadow: var(--shadow-strong);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: all var(--transition-speed);
+}
+
+.navbar.scrolled .nav-links li a {
+  color: var(--secondary-color);
+}
+
+.nav-links li a:hover {
+  color: var(--secondary-color);
+}
+
+.logo img {
+  height: 50px;
+  transition: transform var(--transition-speed);
+}
+
+.logo img:hover {
+  transform: scale(1.08);
+}
+
+/* ------------------ PRELOADER ------------------ */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-logo {
+  width: 120px;
+  height: auto;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* ------------------ ANIMATION CLASSES ------------------ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 1s ease;
+}
+
+.reveal-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 1s ease;
+}
+
+.scale-in.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ------------------ PARALLAX BACKGROUNDS ------------------ */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 2rem 10%;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--secondary-color);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 5%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: var(--primary-color);
+    margin: 4px 0;
+    border-radius: 3px;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.5rem; }
+}

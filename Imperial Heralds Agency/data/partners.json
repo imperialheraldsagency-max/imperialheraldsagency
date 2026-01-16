@@ -1,0 +1,20 @@
+[
+  {
+    "id": "IHA-001",
+    "name": "John Doe",
+    "status": "Active",
+    "ladder": "Starter"
+  },
+  {
+    "id": "IHA-002",
+    "name": "Jane Smith",
+    "status": "Active",
+    "ladder": "Growth"
+  },
+  {
+    "id": "IHA-003",
+    "name": "Michael Johnson",
+    "status": "Inactive",
+    "ladder": "Elite Partner"
+  }
+]

@@ -1,0 +1,745 @@
+/* ================= GLOBAL VARIABLES ================= */
+:root {
+  --primary-color: #ffffff; /* Dominant White background */
+  --secondary-color: #000000; /* Black accent for text */
+  --accent-color: #d4af37; /* Gold for highlights/buttons */
+  --text-color: #000000; /* Default text color */
+  --text-light: #555555; /* Subtext color */
+  --transition-speed: 0.4s;
+  --border-radius: 10px;
+  --max-width: 1200px;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+/* ================= GLOBAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* ================= NAVIGATION ================= */
+.nav-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 20px;
+height: 70px;
+background: #ffffff;
+border-bottom: 1px solid rgba(11,19,32,0.05);
+}
+
+.nav-left .nav-logo {
+height: 90px; /* Slightly reduced to fit nav container */
+}
+
+.nav-right {
+display: flex;
+align-items: center;
+gap: 50px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  margin-right: 50px;
+  list-style: none;     /* remove bullet from all li inside */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+color: #0b1320;
+font-weight: 500;
+position: relative;
+transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+color: #d4af37;
+}
+
+.nav-links a::after {
+content: "";
+position: absolute;
+width: 0;
+height: 2px;
+left: 0;
+bottom: -4px;
+background-color: #d4af37;
+transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+.btn-cta {
+background-color: #d4af37;
+color: #ffffff;
+padding: 12px 20px;
+border-radius: 8px;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+background-color: #0b1320;
+color: #ffffff;
+}
+
+/* ================= HERO SECTION ================= */
+.refer-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem 2rem 4rem 2rem;
+  background: linear-gradient(120deg, var(--primary-color) 70%, var(--accent-color) 30%);
+}
+
+.refer-hero .hero-content {
+  max-width: 600px;
+}
+
+/* Reduce line spacing in the headline */
+.refer-hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  line-height: 1.1; /* reduced from default (~1.4) */
+}
+
+/* Optional: If you want even tighter spacing, use 1.05 instead of 1.1 */
+
+.refer-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Increase CTA size */
+.cta-btn {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 1.1rem 2.5rem; /* increased from 0.9rem 2rem */
+  font-size: 1.1rem; /* larger text */
+  border-radius: var(--border-radius);
+  font-weight: 700; /* bolder */
+  transition: all var(--transition-speed);
+}
+
+.cta-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* Increase hero image size */
+.refer-hero .hero-image img {
+  max-width: 600px; /* was 500px */
+  border-radius: var(--border-radius);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+
+/* ================= HOW IT WORKS ================= */
+.how-it-works {
+  text-align: center;
+  padding: 6rem 2rem;
+  background-color: var(--primary-color);
+}
+
+.how-it-works h2 {
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  color: var(--secondary-color);
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1 1 250px;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: transform var(--transition-speed);
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+/* Increase the step numbers (1, 2, 3) */
+.step-number {
+  font-size: 3rem; /* was 2rem, now larger */
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+/* Increase the step titles (Join the Program, Share & Promote, Earn Commissions) */
+.step h3 {
+  font-size: 1.8rem; /* was default, now larger */
+  font-weight: 700;
+  color: #0b1320; /* keep titles dark */
+  margin-bottom: 1rem;
+}
+
+/* ================= BENEFITS ================= */
+.benefits {
+  padding: 6rem 2rem;
+  background-color: #fdfdfd;
+  text-align: center;
+}
+
+.benefits h2 {
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  color: var(--secondary-color);
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 2rem;
+  justify-items: center; /* center content inside each grid item */
+  align-items: start;
+}
+
+/* Benefit card */
+.benefit-item {
+  flex: 1 1 250px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+.benefit-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+}
+
+/* Benefit images */
+.benefit-item img {
+  width: 100%;
+  max-width: 320px; /* enlarged image size */
+  height: 250px; /* taller like service page */
+  object-fit: cover;
+  border-radius: 16px; /* rounded edges */
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.benefit-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
+
+/* Titles & text */
+.benefit-item h3 {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.benefit-item p {
+  color: #333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .benefit-grid {
+    grid-template-columns: 1fr; /* single column on smaller screens */
+  }
+
+  .benefit-item img {
+    max-width: 250px;
+    height: 200px;
+  }
+}
+
+/* ================= REFERRAL PROGRAM ================= */
+.referral-program {
+  padding: 4.5rem 1.5rem;
+  background: #ffffff;
+  color: #0b1320;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.referral-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Header */
+.referral-header h2 {
+  font-size: 3.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  color: #0b1320;
+}
+
+.referral-lead {
+  color: #555555;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* 3x1 Grid */
+.referral-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+/* Card */
+.referral-card {
+  background: #fff;
+  border: 1px solid rgba(11,19,32,0.05);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.referral-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(11,19,32,0.08);
+}
+
+/* Lucide icons styled like images */
+.referral-icon {
+  width: 120px;       /* increased icon size */
+  height: 120px;      /* increased icon size */
+  color: #d4af37;     /* gold accent */
+  margin-bottom: 1.2rem;
+}
+
+/* Titles and text */
+.referral-card h2 {
+  font-size: 1.5rem;  /* increased tier title size */
+  color: #0b1320;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.tier-rate {
+  color: #d4af37;
+  font-size: 1.3rem;  /* increased commission text size */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.tier-desc {
+  color: #555;
+  font-size: 1.05rem; /* slightly larger description text */
+  line-height: 1.6;
+}
+
+/* Terms */
+.referral-terms {
+  margin-top: 1.25rem;
+  color: #444;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.referral-note {
+  margin-top: 0.6rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* CTA buttons */
+.referral-cta {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-questions {
+  background-color: #d4af37;
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  border-radius: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-questions:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .referral-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .referral-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .referral-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .tier-rate {
+    font-size: 1.1rem;
+  }
+
+  .tier-desc {
+    font-size: 1rem;
+  }
+}
+
+
+
+/* ================= JOIN FORM ================= */
+.join-section {
+  padding: 6rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.join-section h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.join-section p {
+  margin-bottom: 3rem;
+  color: var(--text-light);
+}
+
+.refer-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  transition: all var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+
+
+.policy-section {
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.policy-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.policy-toggle:hover {
+  color: #1a1a1a;
+}
+
+.policy-content {
+  display: none;
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.policy-content ul {
+  padding-left: 20px;
+}
+
+.policy-checkbox {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#policyArrow {
+  transition: transform 0.3s ease;
+}
+
+
+.submit-btn {
+  margin-top: 30px; /* 👈 ADD THIS */
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 14px 30px;
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+
+
+.submit-btn:hover {
+  background-color: #000; /* black on hover */
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 500px) {
+  .verify-box input {
+    width: 100%;
+  }
+  .verify-box {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .verify-box button {
+    width: 100%;
+  }
+}
+
+
+
+/* ================= FOOTER ================= */
+footer.footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  background-color: #0b1320;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start; /* top-aligned sections */
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  gap: 20px;
+  padding: 0 -100px;
+}
+
+/* ===== Left Section ===== */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* top aligns with other sections */
+  gap: -25px;
+  margin-left: -40
+}
+
+.footer-left img.footer-logo {
+  max-width: 120px;
+  height: auto;
+  margin-top: 100px;
+  margin: 0; /* remove negative margins */
+}
+
+/* Wrapper aligns text vertically under logo while keeping top alignment with headers */
+.footer-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* start at same top as logo */
+}
+
+.footer-left .footer-text {
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+  color: #ffffff
+}
+
+.footer-left .footer-slogan {
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff
+}
+
+/* ===== Middle Section: Quick Links ===== */
+.footer-center h4 {
+  margin-bottom: 12px;
+  color: #ffffff
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+}
+
+/* ===== Right Section: Contact Us + Icons ===== */
+.footer-right h4 {
+  padding-bottom: 8px;
+  margin: 0;
+  color: #ffffff
+}
+
+.footer-right p {
+  margin: 2px 0;
+  color: #ffffff
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.social-icons img {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+}
+
+/* ===== Footer Separator & Copyright ===== */
+.footer-separator {
+  border: 0;
+  border-top: 2px solid #ffffff;
+  margin: 20px 0 12px;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-text-wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-center,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-left img.footer-logo {
+    margin: 0 auto 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
